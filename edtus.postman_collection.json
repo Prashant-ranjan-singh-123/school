@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "dd995b06-273e-47d9-a0a2-36c1eccd715e",
+		"name": "Edtus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28864425"
+	},
+	"item": [
+		{
+			"name": "get syllabus",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|992pxgCCl1cAEygfhtoyrS0Ebqc2RBJAfe0lPLMZdd1d5b4f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "school_code",
+						"value": "{{school_code}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/teacher/syllabus/progress/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"teacher",
+						"syllabus",
+						"progress",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "student profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7|xeMFkQViGc88I9h9PhoBfybe5DAizwawLN7ezZiO8b8de039",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "school_code",
+						"value": "{{school_code}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "21",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/student/get-profile-data",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"student",
+						"get-profile-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"school_code\" : \"EDTP20243\",\r\n    \"email\" : \"20240304\",\r\n    \"password\" : \"28091999\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/teacher/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"teacher",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "student login",
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "school_code",
+							"value": "EDTP20243",
+							"type": "text"
+						},
+						{
+							"key": "gr_number",
+							"value": "20240302",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "15022000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://edtus.ionenergyinfra.com/api/student/login",
+					"protocol": "https",
+					"host": [
+						"edtus",
+						"ionenergyinfra",
+						"com"
+					],
+					"path": [
+						"api",
+						"student",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "student/class-subjects",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "school_code",
+						"value": "EDTP20243",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/student/class-subjects",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"student",
+						"class-subjects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChatGPT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "school_code",
+						"value": "EDTP20243",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "question",
+							"value": "I am born 1997 then what is my age",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/chat",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"chat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "counseling form",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "school_code",
+						"value": "EDTP20243",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "student_name",
+							"value": "Anand",
+							"type": "text"
+						},
+						{
+							"key": "grade_class_section",
+							"value": "AB",
+							"type": "text"
+						},
+						{
+							"key": "student_contact_info",
+							"value": "9098789098",
+							"type": "text"
+						},
+						{
+							"key": "parent_guardian_name",
+							"value": "Boss",
+							"type": "text"
+						},
+						{
+							"key": "parent_contact_info",
+							"value": "Spider",
+							"type": "text"
+						},
+						{
+							"key": "counseling_query_details",
+							"value": "Good",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/counseling-form",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"counseling-form"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student packages",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "school_code",
+						"value": "EDTP20243",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/student-packages",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"student-packages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Packages Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "school_code",
+						"value": "EDTP20243",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/student-packages/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"student-packages",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student package details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "school_code",
+						"value": "EDTP20243",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/student/student-package-details/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"student",
+						"student-package-details",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "1|992pxgCCl1cAEygfhtoyrS0Ebqc2RBJAfe0lPLMZdd1d5b4f",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "school_code",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
