@@ -49,7 +49,10 @@ class Api {
   static String chatMessages = "${databaseUrl}message";
   static String readMessages = "${databaseUrl}message/read";
   static String deleteMessages = "${databaseUrl}delete/message";
-  //
+
+  // Plans
+  static String studentPlans = "${databaseUrl}student-packages";
+  static String studentPlanBuy = "${databaseUrl}student-subscribe-buy";
 
   //
   ///[Student app apis]
@@ -57,6 +60,7 @@ class Api {
   static String studentLogin = "${databaseUrl}student/login";
   static String studentProfile = "${databaseUrl}student/get-profile-data";
   static String studentSubjects = "${databaseUrl}student/subjects";
+
   //get subjects of given class
   static String classSubjects = "${databaseUrl}student/class-subjects";
   static String studentTimeTable = "${databaseUrl}student/timetable";
@@ -74,6 +78,8 @@ class Api {
   static String getStudentAttendance = "${databaseUrl}student/attendance";
   static String getAssignments = "${databaseUrl}student/assignments";
   static String submitAssignment = "${databaseUrl}student/submit-assignment";
+  static String counslingForm = "${databaseUrl}counseling-form";
+
   static String generalAnnouncements = "${databaseUrl}student/announcements";
   static String guardianDetailsOfStudent =
       "${databaseUrl}student/guradian-details";
@@ -199,7 +205,69 @@ class Api {
       if (kDebugMode) {
         print("Response: ${response.data}");
       }
-      if (response.data['error']) {
+      if (response.data.containsKey('error') &&
+          response.data['error'] == true) {
+        throw ApiException(response.data['code'].toString());
+      }
+      return Map.from(response.data);
+    } on DioException catch (e) {
+      if (kDebugMode) {
+        print(e.response?.data);
+      }
+      if (e.response?.statusCode == 503 || e.response?.statusCode == 500) {
+        throw ApiException(ErrorMessageKeysAndCode.internetServerErrorCode);
+      }
+      throw ApiException(
+        e.error is SocketException
+            ? ErrorMessageKeysAndCode.noInternetCode
+            : ErrorMessageKeysAndCode.defaultErrorMessageCode,
+      );
+    } on ApiException catch (e) {
+      throw ApiException(e.errorMessage);
+    } catch (e) {
+      throw ApiException(ErrorMessageKeysAndCode.defaultErrorMessageKey);
+    }
+  }
+
+  static Future<Map<String, dynamic>> postWithHeader({
+    required Map<String, dynamic> body,
+    required String url,
+    required bool useAuthToken,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? customHeaders,
+    CancelToken? cancelToken,
+    Function(int, int)? onSendProgress,
+    Function(int, int)? onReceiveProgress,
+  }) async {
+    try {
+      final Dio dio = Dio();
+      final FormData formData =
+          FormData.fromMap(body, ListFormat.multiCompatible);
+      if (kDebugMode) {
+        print("API Called POST: $url with $body");
+        print("Body Params: $body");
+      }
+
+      final headersMap = {
+        if (useAuthToken) ...headers(),
+        if (customHeaders != null) ...customHeaders,
+      };
+
+      final response = await dio.post(
+        url,
+        data: formData,
+        queryParameters: queryParameters,
+        cancelToken: cancelToken,
+        onReceiveProgress: onReceiveProgress,
+        onSendProgress: onSendProgress,
+        options: useAuthToken ? Options(headers: headersMap) : null,
+      );
+
+      if (kDebugMode) {
+        print("Response: ${response.data}");
+      }
+      if (response.data.containsKey('error') &&
+          response.data['error'] == true) {
         throw ApiException(response.data['code'].toString());
       }
       return Map.from(response.data);
@@ -247,6 +315,75 @@ class Api {
           print(response.data);
         }
         throw ApiException(response.data['code'].toString());
+      }
+
+      return Map.from(response.data);
+    } on DioException catch (e) {
+      if (kDebugMode) {
+        print("Url is $url");
+        print(e.response?.data);
+        print(e.response?.statusCode);
+      }
+
+      if (e.response?.statusCode == 401) {
+        throw ApiException(ErrorMessageKeysAndCode.unauthenticatedErrorCode);
+      }
+      if (e.response?.statusCode == 503 || e.response?.statusCode == 500) {
+        throw ApiException(ErrorMessageKeysAndCode.internetServerErrorCode);
+      }
+      throw ApiException(
+        e.error is SocketException
+            ? ErrorMessageKeysAndCode.noInternetCode
+            : ErrorMessageKeysAndCode.defaultErrorMessageCode,
+      );
+    } on ApiException catch (e) {
+      throw ApiException(e.errorMessage);
+    } catch (e) {
+      if (kDebugMode) {
+        print(e.toString());
+      }
+      throw ApiException(ErrorMessageKeysAndCode.defaultErrorMessageKey);
+    }
+  }
+
+  static Future<Map<String, dynamic>> getWithHeader({
+    required String url,
+    required bool useAuthToken,
+    Map<String, dynamic>? queryParameters,
+    Map<String, String>? customHeaders,
+  }) async {
+    try {
+      final Dio dio = Dio();
+
+      if (kDebugMode) {
+        print(url);
+        print(queryParameters);
+        print(customHeaders);
+      }
+
+      final headersMap = {
+        if (useAuthToken) ...headers(),
+        if (customHeaders != null) ...customHeaders,
+      };
+
+      final response = await dio.get(
+        url,
+        queryParameters: queryParameters,
+        options: Options(headers: headersMap),
+      );
+
+      // print(response);
+
+      try {
+        if (response.data['error']) {
+          if (kDebugMode) {
+            print("Url $url");
+            print(response.data);
+          }
+          throw ApiException(response.data['code'].toString());
+        }
+      } catch (e){
+
       }
 
       return Map.from(response.data);

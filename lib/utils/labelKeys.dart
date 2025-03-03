@@ -172,6 +172,10 @@ const String undoingKey = "undoing";
 const String noTopicsKey = "noTopics";
 
 const String noChaptersKey = "noChapters";
+const String plan = "Plan";
+const String activePlan = "Active Plans";
+const String planDetail = "Plan Detail";
+const String transitions = "Transitions";
 
 const String noAnnouncementKey = "noAnnouncement";
 const String noFilesUploadedKey = "noFilesUploaded";

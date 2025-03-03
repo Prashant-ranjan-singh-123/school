@@ -48,6 +48,8 @@ import 'package:test/data/repositories/systemInfoRepository.dart';
 
 import 'package:test/cubits/onlineExamQuestionsCubit.dart';
 import 'package:test/data/repositories/reportRepository.dart';
+import 'package:test/ui/screens/priceDetails/state_management/plans_cubit.dart';
+import 'package:test/ui/screens/studentGpt/state_management/student_gpt_cubit.dart';
 import 'package:test/ui/styles/colors.dart';
 
 import 'package:test/utils/hiveBoxKeys.dart';
@@ -81,7 +83,9 @@ Future<void> initializeApp() async {
     ),
   );
 
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  if(kReleaseMode) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await AppTranslation.loadJsons();
@@ -96,9 +100,18 @@ Future<void> initializeApp() async {
   await Hive.openBox(studentSubjectsBoxKey);
 
   runApp(DevicePreview(
-      enabled: true,
+      enabled: kDebugMode,
       builder: (BuildContext context) {
-        return MyApp();
+        return MultiBlocProvider(providers: [
+          BlocProvider<StudentGptCubit>(
+            create: (_) => StudentGptCubit(),
+          ),
+          BlocProvider<PlansCubit>(
+            create: (_) => PlansCubit(),
+          ),
+        ], child: MyApp());
+
+          MyApp();
       }));
 }
 

@@ -439,7 +439,7 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "{{url}}/api/student/student-package-details/2",
+					"raw": "{{url}}/api/student/student-package-details/9",
 					"host": [
 						"{{url}}"
 					],
@@ -447,7 +447,195 @@
 						"api",
 						"student",
 						"student-package-details",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student subscribe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "school_code",
+						"value": "EDTP20243",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/student/9/subscribe/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"student",
+						"9",
+						"subscribe",
 						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student sub details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "school_code",
+						"value": "EDTP20243",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/student/21/package",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"student",
+						"21",
+						"package"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student subscribe buy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "school_code",
+						"value": "EDTP20243",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "studentId",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "package_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "payment_transaction_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/student-subscribe-buy",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"student-subscribe-buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Student subscribe details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "school_code",
+						"value": "EDTP20243",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "studentId",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "package_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/student-subscribe-details",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"student-subscribe-details"
 					]
 				}
 			},

@@ -5,9 +5,12 @@ class ScreenTopBackgroundContainer extends StatelessWidget {
   final Widget? child;
   final double? heightPercentage;
   final EdgeInsets? padding;
-  const ScreenTopBackgroundContainer({
+  bool isBackButton;
+
+  ScreenTopBackgroundContainer({
     Key? key,
     this.child,
+    this.isBackButton = false,
     this.heightPercentage,
     this.padding,
   }) : super(key: key);
@@ -35,7 +38,23 @@ class ScreenTopBackgroundContainer extends StatelessWidget {
           bottomRight: Radius.circular(25),
         ),
       ),
-      child: child,
+      child: Stack(
+        children: [
+          child ?? SizedBox(),
+          isBackButton
+              ? SafeArea(
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back_ios_new,
+                        color: Colors.white,
+                      )),
+                )
+              : SizedBox()
+        ],
+      ),
     );
   }
 }

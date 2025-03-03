@@ -6,8 +6,10 @@ class CustomTextFieldContainer extends StatelessWidget {
   final String hintTextKey;
   final bool hideText;
   final double? bottomPadding;
+  TextInputType? textInputType;
   final Widget? suffixWidget;
   Color? theme;
+  final int minLine;
   final TextEditingController? textEditingController;
 
   CustomTextFieldContainer({
@@ -17,13 +19,15 @@ class CustomTextFieldContainer extends StatelessWidget {
     this.theme,
     required this.hideText,
     required this.hintTextKey,
+    this.minLine = 1,
+    this.textInputType,
     this.textEditingController,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      // height: 50,
       margin: EdgeInsets.only(bottom: bottomPadding ?? 20.0),
       padding: const EdgeInsetsDirectional.only(
         start: 20.0,
@@ -36,6 +40,9 @@ class CustomTextFieldContainer extends StatelessWidget {
       child: TextFormField(
           controller: textEditingController,
           obscureText: hideText,
+          minLines: minLine,
+          maxLines: minLine,
+          keyboardType: textInputType,
           style: TextStyle(
               color: theme ?? Utils.getColorScheme(context).secondary),
           decoration: InputDecoration(

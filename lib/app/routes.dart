@@ -47,6 +47,8 @@ import 'package:test/ui/screens/topicDetailsScreen.dart';
 import 'package:test/ui/screens/transactionsScreen.dart';
 import 'package:get/route_manager.dart';
 
+import '../ui/screens/bus/bus_menu_option_screen.dart';
+import '../ui/screens/studentGpt/student_gpt_intro_screen.dart';
 import '../ui/widgets/timetableContainer.dart';
 
 // ignore: avoid_classes_with_only_static_members
@@ -58,6 +60,7 @@ class Routes {
   static const String parentLogin = "/parentLogin";
   static const String studentLogin = "/studentLogin";
   static const String studentProfile = "/studentProfile";
+  static const String busDetails = "/busDetails2";
   static const String assignment = "/assignment";
 
   static const String exam = "/exam";
@@ -117,7 +120,6 @@ class Routes {
   static const String newChatContacts = "/newChatContacts";
   static const String chat = "/chat";
 
-
   static List<GetPage> getPages = [
     GetPage(name: splash, page: () => SplashScreen.routeInstance()),
     GetPage(name: home, page: () => HomeScreen.routeInstance()),
@@ -127,6 +129,7 @@ class Routes {
     GetPage(name: parentHome, page: () => ParentHomeScreen.routeInstance()),
     GetPage(
         name: studentProfile, page: () => StudentProfileScreen.routeInstance()),
+    GetPage(name: busDetails, page: () => BusMenuOptionScreen.routeInstance()),
     GetPage(name: assignment, page: () => AssignmentScreen.routeInstance()),
     GetPage(name: exam, page: () => ExamScreen.routeInstance()),
     GetPage(

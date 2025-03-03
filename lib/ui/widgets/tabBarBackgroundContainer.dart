@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class TabBarBackgroundContainer extends StatelessWidget {
   final BoxConstraints boxConstraints;
+
   const TabBarBackgroundContainer({Key? key, required this.boxConstraints})
       : super(key: key);
 
@@ -10,18 +11,53 @@ class TabBarBackgroundContainer extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-          border: Border.all(color: Theme.of(context).scaffoldBackgroundColor),
-          borderRadius: BorderRadius.circular(15.0),),
+        border: Border.all(color: Theme.of(context).scaffoldBackgroundColor),
+        borderRadius: BorderRadius.circular(15.0),
+      ),
       margin: EdgeInsets.only(
-          left: boxConstraints.maxWidth * (0.1),
-          right: boxConstraints.maxWidth * (0.1),
-          top: boxConstraints.maxHeight * (0.125),),
+        left: boxConstraints.maxWidth * (0.1),
+        right: boxConstraints.maxWidth * (0.1),
+        top: boxConstraints.maxHeight * (0.125),
+      ),
       height: boxConstraints.maxHeight * (0.325),
       width: boxConstraints.maxWidth * (0.375),
       child: Container(
         decoration: BoxDecoration(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            borderRadius: BorderRadius.circular(10.0),),
+          color: Theme.of(context).scaffoldBackgroundColor,
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+      ),
+    );
+  }
+}
+
+class TabBarBackgroundContainerFor3Items extends StatelessWidget {
+  final BoxConstraints boxConstraints;
+
+  const TabBarBackgroundContainerFor3Items(
+      {Key? key, required this.boxConstraints})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(5),
+      decoration: BoxDecoration(
+        border: Border.all(color: Theme.of(context).scaffoldBackgroundColor),
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      margin: EdgeInsets.only(
+        left: boxConstraints.maxWidth * (0.05),
+        right: boxConstraints.maxWidth * (0.05),
+        top: boxConstraints.maxHeight * (0.125),
+      ),
+      height: boxConstraints.maxHeight * (0.325),
+      width: boxConstraints.maxWidth * (0.3),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).scaffoldBackgroundColor,
+          borderRadius: BorderRadius.circular(10.0),
+        ),
       ),
     );
   }
