@@ -263,7 +263,7 @@ const String noExamTodayKey = "noExamToday";
 const String noExamNowKey = "noExamNow";
 
 const String quitExamKey = "quitExam";
-const String quiz = "quiz";
+const String quiz = "Quiz";
 
 const String todayKey = "today";
 const String tomorrowKey = "tomorrow";
@@ -391,7 +391,6 @@ const String theoryKey = "theory";
 const String chatsKey = "chats";
 const String cameraKey = "camera";
 const String documentKey = "document";
-
 
 const String januaryKey = "january";
 const String februaryKey = "february";

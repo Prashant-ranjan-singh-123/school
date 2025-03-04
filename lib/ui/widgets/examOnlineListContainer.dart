@@ -282,7 +282,7 @@ class _ExamOnlineListContainerState extends State<ExamOnlineListContainer> {
     return CustomRefreshIndicator(
       displacment: Utils.getScrollViewTopPadding(
         context: context,
-        appBarHeightPercentage: Utils.appBarBiggerHeightPercentage,
+        appBarHeightPercentage: Utils.appBarSmallerHeightPercentage,
       ),
       onRefreshCallback: () {
         if (kDebugMode) {
@@ -297,7 +297,7 @@ class _ExamOnlineListContainerState extends State<ExamOnlineListContainer> {
           bottom: Utils.getScrollViewBottomPadding(context),
           top: Utils.getScrollViewTopPadding(
             context: context,
-            appBarHeightPercentage: Utils.appBarBiggerHeightPercentage,
+            appBarHeightPercentage: Utils.appBarSmallerHeightPercentage,
           ),
         ),
         child: Column(
@@ -309,7 +309,7 @@ class _ExamOnlineListContainerState extends State<ExamOnlineListContainer> {
                   return Align(
                     alignment: Alignment.topCenter,
                     child: state.examList.isEmpty
-                        ? const NoDataContainer(titleKey: noExamsFoundKey)
+                        ? const NoDataContainer(titleKey: 'Yee.. No Quiz Found!')
                         : Column(
                             children: [
                               SizedBox(

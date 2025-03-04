@@ -40,8 +40,8 @@ const bool showDefaultCredentials = true;
 const String defaultStudentGRNumber = "20240304";
 const String defaultStudentPassword = "28091999";
 //default credentials of parent
-const String defaultParentEmail = "johnny@gmail.com";
-const String defaultParentPassword = "8844778855";
+const String defaultParentEmail = "ghartak2019@gmail.com";
+const String defaultParentPassword = "8839002297";
 // Default school code
 const String defaultSchoolCode = "EDTP20243";
 

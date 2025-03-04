@@ -174,7 +174,7 @@ class _ExamOfflineListContainerState extends State<ExamOfflineListContainer> {
           bottom: Utils.getScrollViewBottomPadding(context),
           top: Utils.getScrollViewTopPadding(
             context: context,
-            appBarHeightPercentage: Utils.appBarBiggerHeightPercentage,
+            appBarHeightPercentage: Utils.appBarSmallerHeightPercentage,
           ),
         ),
         child: Column(

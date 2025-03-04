@@ -50,19 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB9lna1jgiFwqpWmpO5m8_Y116Fy1m1jc4',
-    appId: '1:418527019436:android:ec9fc0ee8c9cfb7b353a09',
-    messagingSenderId: '418527019436',
-    projectId: 'edtus-5a08b',
-    storageBucket: 'edtus-5a08b.firebasestorage.app',
+    apiKey: 'AIzaSyARfJh9w0352brwElpW_plOICB2EeFgLAQ',
+    appId: '1:986496011003:android:29eda78eeeac142d19be5e',
+    messagingSenderId: '986496011003',
+    projectId: 'edtus-73d74',
+    storageBucket: 'edtus-73d74.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBqoThIjmwJYlpdB9WNo4l0icwndXEokS8',
-    appId: '1:418527019436:ios:3a69031145d2e5e6353a09',
-    messagingSenderId: '418527019436',
-    projectId: 'edtus-5a08b',
-    storageBucket: 'edtus-5a08b.firebasestorage.app',
+    apiKey: 'AIzaSyCoicKnvRkGBBNsGkIu4ray_36PanypEMM',
+    appId: '1:986496011003:ios:f3f8eb35939606fb19be5e',
+    messagingSenderId: '986496011003',
+    projectId: 'edtus-73d74',
+    storageBucket: 'edtus-73d74.firebasestorage.app',
     iosBundleId: 'com.edtus.app',
   );
 

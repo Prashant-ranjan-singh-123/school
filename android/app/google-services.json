@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "418527019436",
-    "project_id": "edtus-5a08b",
-    "storage_bucket": "edtus-5a08b.firebasestorage.app"
+    "project_number": "986496011003",
+    "project_id": "edtus-73d74",
+    "storage_bucket": "edtus-73d74.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:418527019436:android:ec9fc0ee8c9cfb7b353a09",
+        "mobilesdk_app_id": "1:986496011003:android:29eda78eeeac142d19be5e",
         "android_client_info": {
           "package_name": "com.edtus.app"
         }
@@ -15,7 +15,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB9lna1jgiFwqpWmpO5m8_Y116Fy1m1jc4"
+          "current_key": "AIzaSyARfJh9w0352brwElpW_plOICB2EeFgLAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986496011003:android:06b3784b79f8140f19be5e",
+        "android_client_info": {
+          "package_name": "com.edtus.school"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARfJh9w0352brwElpW_plOICB2EeFgLAQ"
         }
       ],
       "services": {
